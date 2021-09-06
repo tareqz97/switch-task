@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row bg-white mt-3 p-3">
+        <div class="col-6">
+            <label>Search</label>
+            <input class="form-control mr-sm-2 ml-4" type="search" name="search" [(ngModel)]="search" placeholder="Search on the book title, author and any thing" aria-label="Search">
+        </div>
+        <div class="col-3">
+          <label>Sort By</label>
+            <select name="sortAs" class="form-control" [(ngModel)]="sortAs">
+              <option disabled="true" value="0" style="height: 50px;">Select option</option>
+              <option *ngFor="let item of sortOptions"
+                  [value]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="getData()">Search</button>
+        </div>
+    </div>
+    <div class="row pb-custom">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt-4 px-custom" *ngFor="let book of books | paginate: { itemsPerPage: 8, currentPage: p }">
+        <app-book [data]="book"></app-book>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center m-5">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>

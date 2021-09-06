@@ -1,0 +1,17 @@
+<div class="bg-white">
+    <span *ngIf="data.availablePdf" class="pdf">PDF</span>
+    <img  class="book-img" [src]="data.image" />
+    <div class="row mx-0 meta-desc my-custom mt-2">
+        <div class="col-md-12 p-0 text-center">
+            <i class="fas fa-map-marker-alt"></i>
+            <span class="cut-text">{{data.title}}</span>    
+        </div>
+    </div>
+    <p class="cut-text desc pt-2">Authors: {{data.authors}}</p>
+    <hr>
+    <div class="mt-2 last-section">
+        <span *ngIf="!data.notForSale" class="price">{{data.price ? data.price + ' ' + data.currencyCode : 'Free'}}</span>
+        <span *ngIf="data.notForSale" class="not-for-sale">Not For Sale</span>
+        <span>Pages: {{data.pageCount}}</span>
+    </div>
+</div>
