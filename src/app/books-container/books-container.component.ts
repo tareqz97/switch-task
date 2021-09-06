@@ -7,7 +7,7 @@ import { ApiService } from '../shared/services/api.service';
   styleUrls: ['./books-container.component.scss']
 })
 export class BooksContainerComponent implements OnInit {
-  p: number = 1;
+  page: number = 1;
   search: string = "";
   books:any = [];
   sortAs: string = "0";
